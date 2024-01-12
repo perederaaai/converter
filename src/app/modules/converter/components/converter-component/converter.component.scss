@@ -1,0 +1,18 @@
+.conversion-wrap{
+  width: 20rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.mat-mdc-form-field {
+  width: 7rem;
+  height: 4.5rem;
+}
+.conversion-inputs{
+  display: flex;
+  gap: 3rem;
+}
+.margin-zero{
+  margin: 0 auto;
+}

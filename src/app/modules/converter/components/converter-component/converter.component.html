@@ -1,0 +1,17 @@
+<div class="conversion-wrap">
+  <h2 class="margin-zero">Select currency to exchange</h2>
+  <div class="conversion-inputs" [formGroup]="form" *ngIf="(currencyRates$ | async) as list">
+    <div>
+      <app-custom-select [currencyList]="list" formControlName="firstCurrency" [label]="'From'">
+      </app-custom-select>
+      <app-custom-input formControlName="firstCurrAmount" [disabledTrigger]="!validationCheck()">
+      </app-custom-input>
+    </div>
+    <div>
+      <app-custom-select [currencyList]="list" formControlName="secondCurrency" [label]="'To'">
+      </app-custom-select>
+      <app-custom-input formControlName="secondCurrAmount" [disabledTrigger]="!validationCheck()">
+      </app-custom-input>
+    </div>
+  </div>
+</div>

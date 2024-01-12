@@ -1,19 +1,21 @@
-import {createReducer, on} from '@ngrx/store';
 import {HttpErrorResponse} from '@angular/common/http';
+import {createReducer, on} from '@ngrx/store';
 import {CMockRates} from "../../../assets/mock-response";
-import {ICurrencyPB, IExchangeRate} from "../../interface/interface";
+import {IExchangeRate} from "../../interface/interface";
 import {getCurrencyRate, getCurrencyRateFailed, getCurrencyRateSuccess} from "./currency.action";
 
 export const currencyStateKey = 'currency';
 
 export interface ICurrencyState {
   currencyList: IExchangeRate[],
+  headerRatesList: IExchangeRate[] | null,
   error: HttpErrorResponse | null,
 }
 
 export const initialExchangeState: ICurrencyState = {
   currencyList: [],
-  error: null
+  headerRatesList: null,
+  error: null,
 }
 
 export const currencyReducer = createReducer(
@@ -21,6 +23,7 @@ export const currencyReducer = createReducer(
   on(getCurrencyRate, (state) => {
     return ({
       ...state,
+      currencyList: []
     })
   }),
   on(getCurrencyRateSuccess, (state, {currencyList}) => {
@@ -30,9 +33,13 @@ export const currencyReducer = createReducer(
     })
   }),
   on(getCurrencyRateFailed, (state, {error}) => {
+    // bank API use CORS policy, so I have to use mock API in this case
+    const headerCurrency: string[] = ['USD', 'EUR'];
+    const headerRates: IExchangeRate[] = CMockRates.exchangeRate.filter(rates => headerCurrency.includes(rates.currency))
     return ({
       ...state,
       currencyList: CMockRates.exchangeRate,
+      headerRatesList: headerRates,
       error
     })
   })

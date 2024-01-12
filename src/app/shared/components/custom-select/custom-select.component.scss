@@ -1,0 +1,46 @@
+.mat-mdc-form-field {
+  width: 8rem;
+  height: 4.5rem;
+}
+
+::ng-deep {
+  .mat-mdc-option:focus.mdc-list-item, .mat-mdc-option.mat-mdc-option-active.mdc-list-item {
+    background-color: #a4c9a4 !important;
+  }
+
+  .mat-mdc-option:hover {
+    background-color: rgba(222, 130, 55, 0.85) !important;
+    color: black !important;
+  }
+
+  .mat-mdc-select-panel {
+    padding: 0 !important;
+    background-color: #fff !important;
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #e0dcc0 !important;
+    border-radius: 10px;
+
+  }
+
+  .mat-mdc-option {
+    color: black !important;
+
+  }
+
+  .mat-mdc-select {
+    color: black !important;
+  }
+
+  .mat-mdc-form-field:not(.mat-form-field-disabled) .mat-mdc-floating-label.mdc-floating-label {
+    color: black !important;
+
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled)
+  .mdc-text-field--focused .mdc-floating-label, .mdc-text-field--filled:not(.mdc-text-field--disabled)
+  .mdc-text-field--focused .mdc-floating-label--float-above {
+    color: black !important;
+  }
+}

@@ -1,5 +1,5 @@
-import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {inject, Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {ICurrencyPB} from "../interface/interface";
@@ -12,11 +12,9 @@ export class CurrencyService {
   private apiUrl: string = environment.apiUrl;
 
   getCurrencyData(date: string): Observable<ICurrencyPB> {
-    const params = {
-      'json&date': date
-    };
+    const params = {'json&date': date};
     return this.http.get<ICurrencyPB>(this.apiUrl + '/p24api/exchange_rates', {params});
-  }
+  };
 
 
 }

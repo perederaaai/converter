@@ -1,0 +1,27 @@
+<div class="converter-wrap">
+  <ng-container *ngIf="(currencyHeaderList$ | async) as list; else loading">
+    <div>
+      <div class="description">
+        Current exchange rate to UAH
+      </div>
+      <div class="converter-header">
+        <div *ngFor="let headerCurrency of list">
+          <div class="rates-today">
+            <p>{{ headerCurrency.currency }}</p>
+            <div>
+              <span>{{ headerCurrency.purchaseRate?.toFixed(2) }}/</span>
+              <span>{{ headerCurrency.saleRate?.toFixed(2) }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="center">
+      <router-outlet></router-outlet>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>

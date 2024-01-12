@@ -1,0 +1,19 @@
+.mat-mdc-form-field {
+  width: 8rem;
+  height: 4.5rem;
+}
+.hide-arrow::-webkit-inner-spin-button,
+.hide-arrow::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+
+.mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input{
+  color: black;
+}
+::ng-deep{
+  .mdc-text-field--filled.mdc-text-field--disabled{
+    background-color: #a4a3a3 !important;
+  }
+}
+
